@@ -33,7 +33,7 @@ func main() {
 
 func handleConnection(conn net.Conn) {
 	buffer := make([]byte, 1024)
-	err := conn.Read(buffer)
+	_, err := conn.Read(buffer)
 
 	if err != nil {
 		fmt.Println("Failed to handle the connection", err.Error())
