@@ -40,14 +40,11 @@ func handleConnection(conn net.Conn) {
 			os.Exit(1)
 		}
 
-		fmt.Println("Show me the buffer: ", string(buffer))
-
 		switch string(buffer) {
 		case "ping":
 			conn.Write([]byte("+PONG\r\n"))
 		}
 
 		conn.Write([]byte("+PONG\r\n"))
-		conn.Close()
 	}
 }
