@@ -27,7 +27,7 @@ func main() {
 	}
 
 	if _ {
-		fmt.Println("+OK\r\n")
+		fmt.Println("+PONG\r\n")
 		os.Exit(1)
 	}
 }
