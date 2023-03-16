@@ -39,6 +39,9 @@ func handleConnection(conn net.Conn) {
 		os.Exit(1)
 	}
 
+	fmt.Println("Show me the conn buffer: ", conn);
+	fmt.Println("Show me the conn buffer: ", _);
+
 	conn.Write([]byte("+PONG\r\n"))
 	conn.Close()
 }
