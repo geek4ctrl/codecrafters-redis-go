@@ -32,14 +32,14 @@ func main() {
 
 func handleConnection(conn net.Conn) {
 	buffer := make([]byte, 1024)
-	_, err := conn.Read(buffer)
+	element, err := conn.Read(buffer)
 
 	if err != nil {
 		fmt.Println("Failed to handle the connection", err.Error())
 		os.Exit(1)
 	}
 
-	fmt.Println("Show me the conn buffer: ", conn);
+	fmt.Println("Show me the conn buffer: ", element);
 
 	conn.Write([]byte("+PONG\r\n"))
 	conn.Close()
