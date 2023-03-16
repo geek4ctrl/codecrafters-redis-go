@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	// Uncomment this block to pass the first stage
+	"io"
 	"net"
 	"os"
 )
@@ -11,7 +11,6 @@ func main() {
 	// You can use print statements as follows for debugging, they'll be visible when running tests.
 	fmt.Println("Logs from your program will appear here!")
 
-	// Uncomment this block to pass the first stage
 	l, err := net.Listen("tcp", "0.0.0.0:6379")
 
 	if err != nil {
@@ -31,15 +30,17 @@ func main() {
 }
 
 func handleConnection(conn net.Conn) {
+
+	var sb strings.Builder
 	buffer := make([]byte, 1024)
-	element, err := conn.Read(buffer)
+	_, err := conn.Read(buffer)
 
 	if err != nil {
 		fmt.Println("Failed to handle the connection", err.Error())
 		os.Exit(1)
 	}
 
-	fmt.Println("Show me the conn buffer: ", element);
+	fmt.Println("Show me the conn buffer: ", sb[buffer[:n]]);
 
 	conn.Write([]byte("+PONG\r\n"))
 	conn.Close()
