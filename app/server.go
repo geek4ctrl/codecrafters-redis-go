@@ -31,21 +31,23 @@ func main() {
 }
 
 func handleConnection(conn net.Conn) {
-	buffer := make([]byte, 1024)
-	_, err := conn.Read(buffer)
+	for {
+		buffer := make([]byte, 1024)
+		_, err := conn.Read(buffer)
 
-	if err != nil {
-		fmt.Println("Failed to handle the connection", err.Error())
-		os.Exit(1)
-	}
+		if err != nil {
+			fmt.Println("Failed to handle the connection", err.Error())
+			os.Exit(1)
+		}
 
-	fmt.Println("Show me the buffer: ", string(buffer))
+		fmt.Println("Show me the buffer: ", string(buffer))
 
-	switch string(buffer) {
-	case "ping":
+		switch string(buffer) {
+		case "ping":
+			conn.Write([]byte("+PONG\r\n"))
+		}
+
 		conn.Write([]byte("+PONG\r\n"))
+		conn.Close()
 	}
-
-	conn.Write([]byte("+PONG\r\n"))
-	conn.Close()
 }
