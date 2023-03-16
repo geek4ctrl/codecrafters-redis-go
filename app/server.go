@@ -29,18 +29,17 @@ func main() {
 
 			go handleConnection(conn)
 	}
+}
 
-	func handleConnection(conn net.Conn) {
-		buffer := make([]byte, 1024)
-		err := conn.Read(buffer)
+func handleConnection(conn net.Conn) {
+	buffer := make([]byte, 1024)
+	err := conn.Read(buffer)
 
-		if err != nil {
-			fmt.Println("Failed to handle the connection", err.Error())
-			os.Exit(1)
-		}
-
-		conn.Write([]byte("+PONG\r\n"))
-		conn.Close()
+	if err != nil {
+		fmt.Println("Failed to handle the connection", err.Error())
+		os.Exit(1)
 	}
 
+	conn.Write([]byte("+PONG\r\n"))
+	conn.Close()
 }
