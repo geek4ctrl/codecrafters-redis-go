@@ -40,7 +40,6 @@ func handleConnection(conn net.Conn) {
 	}
 
 	fmt.Println("Show me the conn buffer: ", conn);
-	fmt.Println("Show me the conn buffer: ", _);
 
 	conn.Write([]byte("+PONG\r\n"))
 	conn.Close()
