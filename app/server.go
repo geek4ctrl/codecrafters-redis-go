@@ -41,6 +41,7 @@ func handleConnection(conn net.Conn) {
 		}
 
 		fmt.Println("Show me the buffer: ", string(buffer));
+		fmt.Println("Show me the buffer: ", string(buffer)[2]);
 
 		switch string(buffer) {
 		case "ping":
