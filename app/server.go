@@ -45,7 +45,12 @@ func handleConnection(conn net.Conn) {
 		fmt.Println("Show me the buffer 2: ", string(buffer)[2]);
 		fmt.Println("Show me the buffer 3: ", string(buffer[2]));
 
-		// arrayOfElement := string.Split(string(buffer), "\r\n")
+		arrayOfElement := string.Split(string(buffer), "\r\n");
+		firstArrayOfElement, restOfArrayOfElement := arrayOfElement[0][1:], arrayOfElement[1:];
+
+		fmt.Println("Show me the buffer 4: ", arrayOfElement);
+		fmt.Println("Show me the buffer 5: ", firstArrayOfElement);
+		fmt.Println("Show me the buffer 6: ", restOfArrayOfElement);
 
 		fmt.Println(strings.Split(string(buffer), "\r\n"));
 
