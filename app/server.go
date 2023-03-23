@@ -40,7 +40,7 @@ func handleConnection(conn net.Conn) {
 			os.Exit(1)
 		}
 
-		fmt.Println("Show me the buffer: ", buffer);
+		fmt.Println("Show me the buffer: ", string(buffer));
 
 		switch string(buffer) {
 		case "ping":
