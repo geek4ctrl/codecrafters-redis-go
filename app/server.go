@@ -48,7 +48,7 @@ func handleConnection(conn net.Conn) {
 
 		// arrayOfElement := string.Split(string(buffer), "\r\n")
 
-		fmt.Println("Montre moi ta gloire: ", strings.Split(string(buffer), "\r\n"));
+		fmt.Println(strings.Split(string(buffer), "\r\n"));
 
 		switch string(buffer) {
 		case "ping":
