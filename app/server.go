@@ -5,6 +5,8 @@ import (
 	// Uncomment this block to pass the first stage
 	"net"
 	"os"
+	"strconv"
+	"strings"
 )
 
 func main() {
@@ -46,7 +48,7 @@ func handleConnection(conn net.Conn) {
 
 		// arrayOfElement := string.Split(string(buffer), "\r\n")
 
-		fmt.Println("Montre moi ta gloire: ", string.Split(string(buffer), "\r\n"));
+		fmt.Println("Montre moi ta gloire: ", strings.Split(string(buffer), "\r\n"));
 
 		switch string(buffer) {
 		case "ping":
