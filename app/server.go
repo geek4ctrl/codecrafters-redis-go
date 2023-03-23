@@ -44,9 +44,9 @@ func handleConnection(conn net.Conn) {
 		fmt.Println("Show me the buffer 2: ", string(buffer)[2]);
 		fmt.Println("Show me the buffer 3: ", string(buffer[2]));
 
-		arrayOfElement := string.Split(string(buffer), "\r\n")
+		// arrayOfElement := string.Split(string(buffer), "\r\n")
 
-		fmt.Println("Montre moi ta gloire: ", arrayOfElement);
+		fmt.Println("Montre moi ta gloire: ", string.Split(string(buffer), "\r\n"));
 
 		switch string(buffer) {
 		case "ping":
